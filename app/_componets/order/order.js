@@ -6,16 +6,14 @@ export default function UserOrder({ cart }) {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    setTotal(generateTotal(cart));
-  }, [cart]);
-
-  function generateTotal(cart) {
-    let sum = 0;
-    cart.map(({ price, quantity }) => {
-      sum = sum + price * quantity;
+    setTotal(() => {
+      let sum = 0;
+      cart.map(({ price, quantity }) => {
+        sum = sum + price * quantity;
+      });
+      return sum;
     });
-    return sum;
-  }
+  }, [cart]);
 
   return (
     <>
