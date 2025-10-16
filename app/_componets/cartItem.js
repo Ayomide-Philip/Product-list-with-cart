@@ -9,7 +9,10 @@ export default function CartItem({ name, price, quantity }) {
             {quantity}x
           </span>{" "}
           <span className="font-light text-[hsl(14,25%,72%)]">@${price}</span>{" "}
-          <span className="font-semibold text-[hsl(12,20%,44%)]"> $5.50</span>
+          <span className="font-semibold text-[hsl(12,20%,44%)]">
+            {" "}
+            ${(price * quantity).toFixed(2)}
+          </span>
         </p>
       </div>
       <div>
