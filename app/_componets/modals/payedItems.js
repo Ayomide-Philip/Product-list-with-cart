@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-export default function PaidItem({ quantity, price, name }) {
+export default function PaidItem({ quantity, price, name, thumbnail }) {
   return (
     <div className="flex items-center gap-3 justify-between">
       <div className="flex gap-3">
         <div>
           <img
-            src="/images/image-baklava-thumbnail.jpg"
-            alt=""
+            src={thumbnail}
+            alt={`Thumbnail for ${name}`}
             className="w-10 h-10 rounded-xl"
           />
         </div>
