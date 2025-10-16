@@ -10,7 +10,6 @@ export default function Card({ name, category, price, desktop }) {
           alt={`${name} | ${category}`}
           className="w-full md:w-[250px] h-[200px] rounded-2xl object-cover hover:border-[hsl(14,86%,42%)] hover:border-2 cursor-grab"
         />
-
         <ButtonHeader />
       </div>
       <div className="mt-5">
