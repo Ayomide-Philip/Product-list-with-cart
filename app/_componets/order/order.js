@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+import { useState } from "react";
 import CartItem from "../cartItem";
 
 export default function UserOrder({ cart }) {
+  const [total, setTotal] = useState(0);
   return (
     <>
       <div className="flex flex-col">
@@ -25,11 +27,6 @@ export default function UserOrder({ cart }) {
           This is a <span className="font-semibold">carbon-neutral</span>{" "}
           delivery
         </p>
-      </div>
-      <div className="flex justify-center items-center p-2 mt-3">
-        <button className="bg-[hsl(14,86%,42%)] w-full h-10 rounded-full text-white cursor-pointer">
-          Confirm Order
-        </button>
       </div>
     </>
   );
