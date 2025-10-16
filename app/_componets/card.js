@@ -6,7 +6,7 @@ export default function Card() {
         <img
           src="/images/image-waffle-desktop.jpg"
           alt="waffle-desktop"
-          className="w-[200px] h-[200px] rounded-2xl"
+          className="w-[250px] h-[200px] rounded-2xl object-cover"
         />
       </div>
       <div className="mt-3">
