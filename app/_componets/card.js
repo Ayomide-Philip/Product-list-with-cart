@@ -1,18 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-export default function Card() {
+export default function Card({ name, category, price, desktop }) {
   return (
     <div className="flex flex-col">
-      <div>
+      <div className="relative">
         <img
-          src="/images/image-waffle-desktop.jpg"
-          alt="waffle-desktop"
-          className="w-[250px] h-[200px] rounded-2xl object-cover"
+          src={desktop}
+          alt={`${name} | ${category}`}
+          className="w-full md:w-[250px] h-[200px] rounded-2xl object-cover hover:border-[hsl(14,86%,42%)] hover:border-2 cursor-grab"
         />
+
+        <div className="absolute  left-1/2 transform -translate-1/2">
+          <button className="bg-white text-black p-2 px-5 rounded-2xl">
+            Add to Cart
+          </button>
+        </div>
       </div>
       <div className="mt-3">
-        <span className="font-light text-sm">Waffle</span>
-        <p className="font-bold">Waffle with Berries</p>
-        <p className="text-[hsl(14,86%,42%)] font-bold">$6.50</p>
+        <span className="font-light text-sm">{category}</span>
+        <p className="font-bold">{name}</p>
+        <p className="text-[hsl(14,86%,42%)] font-bold">${price.toFixed(2)}</p>
       </div>
     </div>
   );
