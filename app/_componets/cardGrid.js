@@ -1,7 +1,7 @@
 import Card from "./card";
 import data from "./data.json";
 
-export default function GridCard() {
+export default function GridCard({ setCart }) {
   return (
     <div>
       <h1 className="red-hat-text text-[hsl(14,65%,9%)] text-3xl font-extrabold">

@@ -2,7 +2,7 @@
 import CartItem from "./cartItem";
 import Image from "next/image";
 
-export default function Order() {
+export default function Order({cart}) {
   const items = 5;
   return (
     <div>
