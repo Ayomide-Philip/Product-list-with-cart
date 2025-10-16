@@ -1,18 +1,31 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from "react";
 import CartItem from "./cartItem";
 import Image from "next/image";
 
-export default function Order({cart}) {
-  const items = 5;
+export default function Order({ cart }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(() => {
+      var initialCount = 0;
+      cart.map((c) => {
+        return (initialCount = c.quantity + initialCount);
+      });
+      return initialCount;
+    });
+  }, [cart, setCount]);
+
   return (
     <div>
       <div className="flex bg-[hsl(20,50%,98%)] p-5 rounded-2xl flex-col mt-10 md:mt-0 md:w-[350px]">
         <h1 className="text-[hsl(14,86%,42%)] font-semibold text-2xl">
-          Your Cart ({items})
+          Your Cart ({count})
         </h1>
-        {items === 0 ? (
+        {count === 0 ? (
           <div className="flex flex-col justify-center items-center">
-            <Image
+            <img
               src="/images/illustration-empty-cart.svg"
               height={20}
               width={200}
@@ -23,9 +36,16 @@ export default function Order({cart}) {
         ) : (
           <>
             <div className="flex flex-col">
-              <CartItem />
-              <CartItem />
-              <CartItem />
+              {cart.map(({ quantity, name, price }, idx) => {
+                return quantity > 0 ? (
+                  <CartItem
+                    name={name}
+                    price={price}
+                    quantity={quantity}
+                    key={idx}
+                  />
+                ) : null;
+              })}
             </div>
             <div className="flex justify-between mt-3 items-center">
               <p className="font-light">Order Total</p>
