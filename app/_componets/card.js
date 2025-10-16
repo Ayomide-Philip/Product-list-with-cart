@@ -1,7 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from "react";
 import ButtonHeader from "./buttonHeader";
 
-export default function Card({ name, category, price, desktop }) {
+export default function Card({
+  name,
+  category,
+  price,
+  desktop,
+  setCart,
+  cart,
+}) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
+  useEffect(() => {
+    setCart((prev) => {
+      return prev.map((p) => {
+        if (p.name === name) {
+          return { ...p, quantity: count };
+        }
+        return p;
+      });
+    });
+  }, [name, setCart, count]);
+
   return (
     <div className="flex flex-col">
       <div className="relative">
@@ -10,7 +35,7 @@ export default function Card({ name, category, price, desktop }) {
           alt={`${name} | ${category}`}
           className="w-full md:w-[250px] h-[200px] rounded-2xl object-cover hover:border-[hsl(14,86%,42%)] hover:border-2 cursor-grab"
         />
-        <ButtonHeader />
+        <ButtonHeader count={count} setCount={setCount} />
       </div>
       <div className="mt-5">
         <span className="font-light text-sm">{category}</span>
