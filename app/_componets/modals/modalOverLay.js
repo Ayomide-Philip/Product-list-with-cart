@@ -14,9 +14,16 @@ export default function ModalOverLay({ cart }) {
           <p className="text-sm font-light">We hope you enjoy your food!</p>
         </div>
         <div className="bg-[hsl(13,31%,94%)] p-2 px-4 w-full rounded-2xl flex flex-col gap-y-5">
-          <PaidItem />
-          <PaidItem />
-          <PaidItem />
+          {cart.map(({ quantity, price, name }, idx) => {
+            return quantity > 0 ? (
+              <PaidItem
+                quantity={quantity}
+                price={price}
+                name={name}
+                key={idx}
+              />
+            ) : null;
+          })}
           <div className="flex justify-between items-center">
             <p className="text-sm">Order Total</p>
             <p className="text-2xl font-bold">$46.50</p>
