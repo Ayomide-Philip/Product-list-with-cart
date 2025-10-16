@@ -23,7 +23,7 @@ export default function Card({ name, category, price, desktop, setCart }) {
           src={desktop}
           alt={`${name} | ${category}`}
           className={`w-full md:w-[250px] h-[200px] rounded-2xl object-cover hover:border-[hsl(14,86%,42%)] hover:border-2 cursor-grab ${
-            count !== 0 && "border-[hsl(14,86%,42%)] border-2"
+            count > 0 && "border-[hsl(14,86%,42%)] border-2"
           }`}
         />
         <ButtonHeader count={count} setCount={setCount} />
