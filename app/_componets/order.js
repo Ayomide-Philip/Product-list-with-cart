@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import EmptyOrder from "./order/emptyOrder";
 import UserOrder from "./order/order";
 
-export default function Order({ cart }) {
+export default function Order({ cart, setModal }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -27,7 +27,12 @@ export default function Order({ cart }) {
           <>
             <UserOrder cart={cart} />
             <div className="flex justify-center items-center p-2 mt-3">
-              <button className="bg-[hsl(14,86%,42%)] w-full h-10 rounded-full text-white cursor-pointer">
+              <button
+                className="bg-[hsl(14,86%,42%)] w-full h-10 rounded-full text-white cursor-pointer"
+                onClick={() => {
+                  setModal((prev) => !prev);
+                }}
+              >
                 Confirm Order
               </button>
             </div>
