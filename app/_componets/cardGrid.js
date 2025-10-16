@@ -16,6 +16,8 @@ export default function GridCard({ setCart }) {
               price={price}
               desktop={desktop}
               key={idx}
+              setCart={setCart}
+              cart={cart}
             />
           );
         })}
