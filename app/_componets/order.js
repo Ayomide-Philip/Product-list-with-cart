@@ -1,8 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
-import CartItem from "./cartItem";
-import Image from "next/image";
+import EmptyOrder from "./order/emptyOrder";
+import UserOrder from "./order/order";
 
 export default function Order({ cart }) {
   const [count, setCount] = useState(0);
@@ -24,44 +22,10 @@ export default function Order({ cart }) {
           Your Cart ({count})
         </h1>
         {count === 0 ? (
-          <div className="flex flex-col justify-center items-center">
-            <img
-              src="/images/illustration-empty-cart.svg"
-              height={20}
-              width={200}
-              alt="Empty Cart"
-            />
-            <p>Your Added Item would appear here</p>
-          </div>
+          <EmptyOrder />
         ) : (
           <>
-            <div className="flex flex-col">
-              {cart.map(({ quantity, name, price }, idx) => {
-                return quantity > 0 ? (
-                  <CartItem
-                    name={name}
-                    price={price}
-                    quantity={quantity}
-                    key={idx}
-                  />
-                ) : null;
-              })}
-            </div>
-            <div className="flex justify-between mt-3 items-center">
-              <p className="font-light">Order Total</p>
-              <p className="font-semibold text-2xl red-hat-text">$46.50</p>
-            </div>
-            <div className="flex justify-center items-center bg-[hsl(13,31%,94%)] p-3 gap-2 mt-3 rounded-xl">
-              <img
-                src="/images/icon-carbon-neutral.svg"
-                className="h-auto w-auto"
-                alt="Carbon Neutral"
-              />
-              <p className="font-light text-sm">
-                This is a <span className="font-semibold">carbon-neutral</span>{" "}
-                delivery
-              </p>
-            </div>
+            <UserOrder cart={cart} />
             <div className="flex justify-center items-center p-2 mt-3">
               <button className="bg-[hsl(14,86%,42%)] w-full h-10 rounded-full text-white cursor-pointer">
                 Confirm Order
