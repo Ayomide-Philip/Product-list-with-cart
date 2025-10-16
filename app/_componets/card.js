@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import ButtonHeader from "./buttonHeader";
 
-/* eslint-disable @next/next/no-img-element */
 export default function Card({ name, category, price, desktop }) {
   return (
     <div className="flex flex-col">
