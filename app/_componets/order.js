@@ -1,4 +1,5 @@
 import CartItem from "./cartItem";
+import Image from "next/image";
 
 export default function Order() {
   return (
@@ -14,6 +15,15 @@ export default function Order() {
       <div className="flex justify-between mt-3 items-center">
         <p className="font-light">Order Total</p>
         <p className="font-semibold text-2xl red-hat-text">$46.50</p>
+      </div>
+      <div className="flex justify-center items-center bg-[]">
+        <Image
+          src="/images/icon-carbon-neutral.svg"
+          height={20}
+          width={20}
+          alt="Carbon Neutral"
+        />
+        <span>This is a carbon-neutral delivery</span>
       </div>
       <div className="flex justify-center items-center p-2 mt-3">
         <button className="bg-[hsl(14,86%,42%)] w-full h-10 rounded-full text-white cursor-pointer">
