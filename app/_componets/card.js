@@ -2,19 +2,8 @@
 import { useEffect, useState } from "react";
 import ButtonHeader from "./buttonHeader";
 
-export default function Card({
-  name,
-  category,
-  price,
-  desktop,
-  setCart,
-  cart,
-}) {
+export default function Card({ name, category, price, desktop, setCart }) {
   const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
 
   useEffect(() => {
     setCart((prev) => {
