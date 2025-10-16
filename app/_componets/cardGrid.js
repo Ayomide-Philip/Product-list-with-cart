@@ -1,3 +1,5 @@
+import Card from "./card";
+
 export default function GridCard() {
   return (
     <div>
@@ -5,7 +7,7 @@ export default function GridCard() {
         Desserts
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full">
-        <div>Hello World</div>
+        <Card />
         <div>Hello World</div>
         <div>Hello World</div>
       </div>
