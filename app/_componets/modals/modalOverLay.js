@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { redirect } from "next/navigation";
 import PaidItem from "./payedItems";
 export default function ModalOverLay({ cart }) {
   function generateTotalAmount(cart) {
